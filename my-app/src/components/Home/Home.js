@@ -8,6 +8,7 @@ import HeroImages from '../elements/HeroImage/HeroImage';
 import SearchBar from '../elements/SearchBar/SearchBar';
 import LoadMoreBTN from '../elements/LoadMoreBtn/LoadMoreBtn';
 import FourColGrid from '../elements/FourColGrid/FourColGrid';
+import Spinner from '../elements/Spinner/Spinner';
 
 class Home extends Component{
 
@@ -100,9 +101,12 @@ class Home extends Component{
                                 />
                             )
                         })}
-                         </FourColGrid>
+                     </FourColGrid>
+                     {this.state.loading ? <Spinner /> : null}
+                     {(this.state.currentPage <= this.state.totalPages && !this.state.loading) ?
+                            <LoadMoreBTN text="Load more" onClick={this.loadMoreItems} /> : null }
                 </div>
-                <LoadMoreBTN />
+               
             </div>    
         )
     }
