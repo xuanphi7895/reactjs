@@ -3,10 +3,11 @@ import './Home.css';
 import {API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../../Config/config';
 import HeroImages from '../elements/HeroImage/HeroImage';
 // import LoadMoreBTN from '../elements/LoadMoreBtn/LoadMoreBtn';
-// import MovieThumb from '../elements/MovieThumb/MovieThumb';
+ import MovieThumb from '../elements/MovieThumb/MovieThumb';
 // import Navigation from '../elements/Navigation/Navigation';
 import SearchBar from '../elements/SearchBar/SearchBar';
 import LoadMoreBTN from '../elements/LoadMoreBtn/LoadMoreBtn';
+import FourColGrid from '../elements/FourColGrid/FourColGrid';
 
 class Home extends Component{
 
@@ -83,7 +84,24 @@ class Home extends Component{
                     />
                     <SearchBar callback={this.searchItems} />
                 </div> : null }
-               
+                <div className="rmdb-home-grid">
+                    <FourColGrid 
+                        header = {this.state.searchTerm ? 'Search Result' : 'Popular Movies'}
+                        loading = {this.state.loading}
+                    >
+                        {this.state.movies.map((elements, i) => {
+                            return (
+                                <MovieThumb
+                                    key={i}
+                                    clickable = {true}
+                                    image ={elements.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${elements.poster_path}` : './images/no_image.jpg'} 
+                                    movieId={elements.id}
+                                    movieName={elements.original_title}
+                                />
+                            )
+                        })}
+                         </FourColGrid>
+                </div>
                 <LoadMoreBTN />
             </div>    
         )
