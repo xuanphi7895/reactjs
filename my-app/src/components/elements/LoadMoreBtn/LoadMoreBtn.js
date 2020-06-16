@@ -1,27 +1,13 @@
-// import React from 'react';
-// import './LoadModeBtn.css';
+import React from 'react';
+import './LoadMoreBtn.css';
 
-// const LoadModeBtn = () => {
-//     return (
-//         <div>
-//             LoadMoreBtn
-//         </div>
-//     )
-// }
-
-// export default LoadMoreBtn;
-
-import React, { Component } from 'react';
-
-class LoadMoreBTN extends Component{
-
-    render(){
-        return (
-            <div>
-
-            </div>
-        )
-    }
+const LoadMoreBtn = (props) => {
+    debugger
+    return (
+        <div className="rmdb-loadmorebtn" onClick={props.onClick}>
+            <p>{props.text}</p>
+        </div>
+    )
 }
 
-export default LoadMoreBTN;
+export default LoadMoreBtn;
