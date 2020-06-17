@@ -30,11 +30,14 @@ class Home extends Component{
     searchItems = (searchTerm) => {
         console.log(searchTerm);
         let endpoint = '';
+        // debugger
         this.setState({
             movies: [],
             loading: true,
+           
             searchTerm
         })
+        console.log('dsd', searchTerm);
 
         if (this.state.searchTerm === ''){
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
@@ -106,7 +109,7 @@ class Home extends Component{
                      {(this.state.currentPage <= this.state.totalPages && !this.state.loading) ?
                             <LoadMoreBTN text="Load more" onClick={this.loadMoreItems} /> : null }
                 </div>
-               
+               <Spinner />
             </div>    
         )
     }
