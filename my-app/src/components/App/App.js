@@ -11,7 +11,7 @@ import './App.css';
 
 import Header from '../elements/Header/Header';
 import Home from '../Home/Home';
-import Movie from '../elements/Movie/Movie';
+import Movie from '../Movie/Movie';
 import NotFound from '../elements/NotFound/NotFound';
 import PropsAndState from '../elements/PropsAndState/PropsAndState';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -38,6 +38,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //     </div>
 //   );
 // }
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -51,11 +53,7 @@ const App = () => {
         </React.Fragment>
     
     </BrowserRouter>
-    // <div className="App">
-      
-    //     <Home />
-    //     {/* <PropsAndState /> */}
-    // </div>
+
   )
 }
 
